@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- <Home />
+    <Repo /> -->
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Home from './components/Home.vue'
+// import Repo from './components/Repo.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+
+  // components: {
+  //   Home,
+  //   Repo,
+  // }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",
+  Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
 </style>
