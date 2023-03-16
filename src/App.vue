@@ -1,22 +1,11 @@
 <template>
-  <div>
-    <!-- <Home />
-    <Repo /> -->
     <router-view></router-view>
-  </div>
 </template>
 
 <script>
-// import Home from './components/Home.vue'
-// import Repo from './components/Repo.vue'
 
 export default {
   name: 'App',
-
-  // components: {
-  //   Home,
-  //   Repo,
-  // }
 }
 </script>
 

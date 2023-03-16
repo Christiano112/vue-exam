@@ -12,7 +12,7 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/:id',
+      path: '/repositories/:name',
       name: 'myRepo',
       component: () => import('./components/Repo.vue')
     }

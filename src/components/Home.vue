@@ -1,6 +1,9 @@
 <template>
     <div>
-        <article>
+        <div v-if="error === 'Network Error' || error === 'timeout exceeded'">
+            <h1>Network Error Please Refresh The Page</h1>
+        </div>
+        <article v-else>
             <div>
                 <img :src="profile.avatar_url" alt="profile pic">
                 <h1>{{ profile.name }}</h1>
@@ -50,14 +53,22 @@
                     Repositories {{ repo.length }}
                 </h1>
                 <div>
-                    <ul v-for="repo in repo" :key="repo.id">
+                    <ul v-for="repo in paginateRepo" :key="repo.id">
                         <li>
-                            <router-link :to="{ name: 'myRepo', params: { id: repo.name } }">
+                            <router-link :to="{ name: 'myRepo', params: { name: repo.id } }">
                                 <h4>{{ repo.name }} <span>{{ repo.visibility }}</span></h4>
+                                <p>{{ repo.description }}</p>
                                 <p>{{ repo.language }}</p>
                             </router-link>
                         </li>
                     </ul>
+                </div>
+                <div>
+                    <button @click="page--" :disabled="page <= 1">Prev</button>
+                    <div v-for="num in pages" :key="num">
+                        <button @click="page = num">{{ num }}</button>
+                    </div>
+                    <button @click="page++" :disabled="page === totalPage">Next</button>
                 </div>
             </section>
         </article>
@@ -74,16 +85,40 @@ export default {
             data: "Chris",
             profile: "",
             repo: "",
+            error: "",
+            page: 1,
+            totalPage: 5,
+            pages: [...Array(5).keys()].map((num) => num + 1)
         }
     },
+    methods: {
+        getProfile() {
+            axios.get('https://api.github.com/users/Christiano112')
+                .then(response => response.data)
+                .then(data => { this.profile = data; console.log(data) })
+                .catch(error => {
+                    this.error = error.message; console.log(error.message);
+                })
+        },
+        getRepo() {
+            axios.get('https://api.github.com/users/Christiano112/repos')
+                .then(response => response.data)
+                .then(data => { this.repo = data; this.totalPage = Math.ceil(this.repo.length / 6); console.log(data) })
+                .catch(error => {
+                    this.error = error.message; console.log(error.message);
+                })
+        },
+    },
+    computed: {
+        paginateRepo() {
+            const startIndex = (this.page - 1) * 6;
+            const endIndex = startIndex + 6;
+            return this.repo.slice(startIndex, endIndex)
+        },
+    },
     mounted() {
-        axios.get('https://api.github.com/users/Christiano112')
-            .then(response => response.data)
-            .then(data => { this.profile = data; console.log(data) })
-
-        axios.get('https://api.github.com/users/Christiano112/repos')
-            .then(response => response.data)
-            .then(data => { this.repo = data; console.log(data) })
+        this.getProfile()
+        this.getRepo()
     }
 }
 </script>
