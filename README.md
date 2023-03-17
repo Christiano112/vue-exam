@@ -1,4 +1,4 @@
-# vue-exam
+# Altschool 3rd Semester Exam
 
 ## Project setup
 ```
@@ -22,3 +22,5 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## [Live Link](https://vue-gitfetch.netlify.app/) 
