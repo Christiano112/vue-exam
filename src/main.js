@@ -15,8 +15,14 @@ const router = createRouter({
       path: '/repositories/:name',
       name: 'myRepo',
       component: () => import('./components/Repo.vue')
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'notFound',
+      component: () => import('./components/Error.vue')
     }
   ]
 })
 
-createApp(App).use(router).mount('#app')
+
+createApp(App).use(router).mount('#app');

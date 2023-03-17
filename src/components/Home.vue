@@ -1,36 +1,61 @@
 <template>
     <div>
         <div v-if="error === 'Network Error' || error === 'timeout exceeded'">
-            <h1>Network Error Please Refresh The Page</h1>
+            <h1 class="network">Network Error Please Refresh The Page</h1>
         </div>
-        <article v-else>
-            <div>
+        <article v-else class="home">
+            <div class="profile">
                 <img :src="profile.avatar_url" alt="profile pic">
                 <h1>{{ profile.name }}</h1>
-                <h2>{{ profile.login }}</h2>
+                <h3>{{ profile.login }}</h3>
                 <p>{{ profile.bio }}</p>
-                <div>
-                    <svg text="muted" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
-                        data-view-component="true">
-                        <path
-                            d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z">
-                        </path>
-                    </svg>
-                    <span>{{ profile.followers }} followers</span>
-                    <span>.</span>
-                    <span>{{ profile.following }} following</span>
-                </div>
                 <ul>
                     <li>
-                        <svg class="octicon octicon-location" viewBox="0 0 16 16" version="1.1" width="16" height="16"
-                            aria-hidden="true">
-                            <path
-                                d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z">
-                            </path>
+                        <svg viewBox="-0.5 0 25 25" fill="currentColor" height="20" width="20"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M8.96991 12.89C10.6599 12.89 12.0299 11.5558 12.0299 9.91C12.0299 8.2642 10.6599 6.93 8.96991 6.93C7.27992 6.93 5.90991 8.2642 5.90991 9.91C5.90991 11.5558 7.27992 12.89 8.96991 12.89Z"
+                                    stroke="#fff" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M12.93 13.1C14.37 14.18 15.32 15.84 15.42 17.72C15.43 17.91 15.27 18.07 15.08 18.07H2.84996C2.64996 18.07 2.48996 17.91 2.49996 17.72C2.60996 15.84 3.55997 14.18 5.00997 13.1"
+                                    stroke="#fff" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path d="M11.03 12.11H11.02" stroke="#fff" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M17.1299 14.56C18.2787 14.56 19.2099 13.6556 19.2099 12.54C19.2099 11.4244 18.2787 10.52 17.1299 10.52C15.9812 10.52 15.0499 11.4244 15.0499 12.54C15.0499 13.6556 15.9812 14.56 17.1299 14.56Z"
+                                    stroke="#fff" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M20.3 15.13C20.99 15.84 21.44 16.79 21.5 17.83C21.51 17.97 21.4 18.07 21.26 18.07H17.38"
+                                    stroke="#fff" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </g>
+                        </svg>
+                        <span>{{ profile.followers }} followers</span>
+                        <span>{{ profile.following }} following</span>
+                    </li>
+                    <li>
+                        <svg fill="currentColor" version="1.1" height="16" width="16" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 395.71 395.71" xml:space="preserve"
+                            stroke="#fff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <path
+                                        d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z">
+                                    </path>
+                                </g>
+                            </g>
                         </svg>
                         <span>{{ profile.location }}</span>
                     </li>
-                    <li itemprop="social"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3" role="img"
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3" role="img"
                             aria-labelledby={{profile.twitter_username}} height="16" width="16">
                             <title id={{profile.twitter_username}}>Twitter</title>
                             <path
@@ -41,29 +66,25 @@
                     </li>
                 </ul>
             </div>
-            <section>
-                <h1><span>
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
-                            data-view-component="true">
-                            <path
-                                d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z">
-                            </path>
-                        </svg>
-                    </span>
-                    Repositories {{ repo.length }}
+            <section class="repo">
+                <h1>
+                    <svg aria-hidden="true" fill="currentColor" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                        data-view-component="true">
+                        <path
+                            d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z">
+                        </path>
+                    </svg>
+                    Repositories <span>{{ repo.length }}</span>
                 </h1>
-                <div>
-                    <ul v-for="repo in paginateRepo" :key="repo.id">
-                        <li>
-                            <router-link :to="{ name: 'myRepo', params: { name: repo.id } }">
-                                <h4>{{ repo.name }} <span>{{ repo.visibility }}</span></h4>
-                                <p>{{ repo.description }}</p>
-                                <p>{{ repo.language }}</p>
-                            </router-link>
-                        </li>
-                    </ul>
-                </div>
-                <div>
+                <ul v-for="repo in paginateRepo" :key="repo.id">
+                    <li>
+                        <router-link :to="{ name: 'myRepo', params: { name: repo.id } }">
+                            <h4>{{ repo.name }} <span>{{ repo.visibility }}</span></h4>
+                            <p>{{ repo.language }}</p>
+                        </router-link>
+                    </li>
+                </ul>
+                <div class="paginate">
                     <button @click="page--" :disabled="page <= 1">Prev</button>
                     <div v-for="num in pages" :key="num">
                         <button @click="page = num">{{ num }}</button>
@@ -123,4 +144,158 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+div .network {
+    display: grid;
+    place-items: center;
+    margin-top: 20%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem
+}
+
+article.home {
+    margin: 2rem auto;
+    display: flex;
+    gap: 3rem;
+    flex-flow: wrap;
+    width: 96%;
+}
+
+.home .profile,
+.repo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home .profile {
+    flex: 1 1 0;
+}
+
+.home .profile img {
+    border-radius: 50%;
+    height: auto;
+    width: 100%;
+    max-width: 20rem;
+    margin-bottom: 2rem;
+}
+
+.home .profile h1 {
+    color: rgb(201, 209, 217);
+    font-size: 2rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+}
+
+.home .profile h2 {
+    color: #8b949e;
+    font-size: 1.5rem;
+    line-height: 1rem;
+}
+
+.home .profile ul li {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.home .profile ul li a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.home .repo {
+    flex: 2 1 0;
+}
+
+.home .repo h1 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.home .repo ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+    padding: .85rem 0;
+    border-bottom: 2px solid #30363d;
+}
+
+.home .repo ul li h4,
+p {
+    color: rgb(201, 209, 217);
+}
+
+.home .repo ul li h4 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+.home .repo ul li h4 span {
+    font-size: .8rem;
+    color: rgb(139, 148, 158);
+    border: 1px solid rgb(139, 148, 158);
+    border-radius: 3rem;
+    padding: .2rem .5rem;
+    font-weight: 600;
+    margin-left: 1rem;
+}
+
+.home .repo ul li p {
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgb(139, 148, 158);
+}
+
+.home .repo .paginate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.home .repo .paginate button {
+    margin: 0 0.2rem;
+    padding: 0.5rem;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.2rem;
+    outline: none;
+    transition: all 0.2s linear;
+}
+
+.home .repo .paginate button:hover {
+    background-color: #30363d;
+    color: #fff;
+}
+
+.home .repo .paginate button:active {
+    filter: opacity(.5);
+}
+
+@media (max-width: 740px) {
+    article.home {
+        flex-direction: column;
+        gap: 5rem;
+    }
+
+    .home .repo h1 {
+        margin-bottom: 0;
+    }
+
+    .home .repo ul li h4 span {
+        font-size: .6rem;
+        margin-left: 0;
+    }
+}
+</style>
