@@ -1,5 +1,5 @@
 <template>
-    <router-view></router-view>
+  <router-view />
 </template>
 
 <script>
@@ -17,8 +17,8 @@ export default {
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",
-  Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   background: #0d1117;
   color: #c9d1d9;
   margin: 0 auto;
@@ -29,4 +29,8 @@ ul li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: currentColor;
+}
 </style>

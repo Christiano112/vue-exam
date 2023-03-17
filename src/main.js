@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory} from 'vue-router'
 import App from './App.vue'
-import Home from './components/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -9,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'homePage',
-      component: Home
+      component: () => import('./components/Home.vue')
     },
     {
       path: '/repositories/:name',
